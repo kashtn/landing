@@ -16,7 +16,10 @@ export default function reducer(state = initialState, action) {
     case ADD_CLIENT:
       return {
         ...state,
-        clientsToCall: [...state.clientsToCall, action.payload],
+        clientsToCall:
+          state.clientsToCall
+            ? [...state.clientsToCall, action.payload]
+            : [action.payload],
       };
     case SET_POSTS:
       return {
