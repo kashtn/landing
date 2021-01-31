@@ -1,7 +1,9 @@
 import "./Nav.scss";
 import { Link } from "react-router-dom";
+import { FC } from "react";
+import { PropsType } from "../../type";
 
-export function Navigation() {
+export const Navigation: FC<PropsType> = () => {
   return (
     <>
       <div className="navContainer">
@@ -41,4 +43,4 @@ export function Navigation() {
       </div>
     </>
   );
-}
+};

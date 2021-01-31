@@ -1,12 +1,16 @@
+import { ActionTypes, StateType } from "../type";
 import { ADD_CLIENT, AUTH, SET_POSTS } from "./actionTypes";
 
-const initialState = {
+const initialState: StateType = {
   auth: false,
   clientsToCall: [],
   posts: [],
 };
 
-export default function reducer(state = initialState, action) {
+export default function reducer(
+  state = initialState,
+  action: ActionTypes
+): StateType {
   switch (action.type) {
     case AUTH:
       return {
@@ -16,10 +20,9 @@ export default function reducer(state = initialState, action) {
     case ADD_CLIENT:
       return {
         ...state,
-        clientsToCall:
-          state.clientsToCall
-            ? [...state.clientsToCall, action.payload]
-            : [action.payload],
+        clientsToCall: state.clientsToCall
+          ? [...state.clientsToCall, action.payload]
+          : [action.payload],
       };
     case SET_POSTS:
       return {

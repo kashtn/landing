@@ -1,5 +1,5 @@
 import "./Login.scss";
-import { useState, useCallback } from "react";
+import { useState, ChangeEvent } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { Modal } from "antd";
@@ -7,24 +7,26 @@ import "antd/dist/antd.css";
 import { Button, Input } from "../../styled";
 
 import { setAuth } from "../../../redux/actions";
+import { AppState } from "../../../redux/store";
+import { StateType } from "../../../type";
 
 export function Login() {
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const [login, setLogin] = useState();
-  const [pass, setPass] = useState();
+  const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
+  const [login, setLogin] = useState<string>("");
+  const [pass, setPass] = useState<string>("");
 
   const dispatch = useDispatch();
-  const { auth } = useSelector((state) => state);
+  const { auth } = useSelector<AppState, StateType>((state) => state);
 
-  const showModal = () => {
+  const showModal = (): void => {
     setIsModalVisible((prev) => !prev);
   };
 
-  const handleCancel = () => {
+  const handleCancel = (): void => {
     setIsModalVisible(false);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: ChangeEvent): void => {
     e.preventDefault();
     if (login === "admin" && pass === "123") {
       dispatch(setAuth(true));
@@ -61,7 +63,7 @@ export function Login() {
                 name="login"
                 type="text"
                 placeholder="Login: admin"
-                onChange={(e) => {
+                onChange={(e: ChangeEvent<HTMLInputElement>) => {
                   setLogin(e.target.value);
                 }}
               />
@@ -73,13 +75,13 @@ export function Login() {
                 name="password"
                 type="password"
                 placeholder="Pass: 123"
-                onChange={(e) => {
+                onChange={(e: ChangeEvent<HTMLInputElement>) => {
                   setPass(e.target.value);
                 }}
               />
               <Button
                 type="submit"
-                onClick={(e) => {
+                onClick={(e: ChangeEvent) => {
                   handleSubmit(e);
                 }}
               >

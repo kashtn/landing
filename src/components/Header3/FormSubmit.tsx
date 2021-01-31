@@ -1,20 +1,21 @@
 import "./Header3.scss";
 import { Input, Button } from "../styled";
-import { useState } from "react";
+import { ChangeEvent, FC, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addClient } from "../../redux/actions";
 import { Modal } from "antd";
+import { PropsType } from "../../type";
 
-export function FormSubmit() {
+export const FormSubmit: FC<PropsType> = () => {
   const dispatch = useDispatch();
 
-  const [name, setName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [tel, setTel] = useState("");
+  const [name, setName] = useState<string>("");
+  const [lastName, setLastName] = useState<string>("");
+  const [tel, setTel] = useState<string>("");
 
   const nameRegExp = /^([a-zA-Z])+$/;
   const telRegExp = /^(([8])+([9])+([0-9]){9})$/;
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: ChangeEvent<HTMLButtonElement>): void => {
     e.preventDefault();
     if (
       nameRegExp.test(name) &&
@@ -57,7 +58,7 @@ export function FormSubmit() {
             type="text"
             placeholder="First name"
             value={name}
-            onChange={(e) => {
+            onChange={(e: ChangeEvent<HTMLInputElement>) => {
               setName(e.target.value);
             }}
           />
@@ -69,7 +70,7 @@ export function FormSubmit() {
             type="text"
             placeholder="Last name"
             value={lastName}
-            onChange={(e) => {
+            onChange={(e: ChangeEvent<HTMLInputElement>) => {
               setLastName(e.target.value);
             }}
           />
@@ -83,13 +84,13 @@ export function FormSubmit() {
             maxLength="11"
             placeholder="Phone number"
             value={tel}
-            onChange={(e) => {
+            onChange={(e: ChangeEvent<HTMLInputElement>) => {
               setTel(e.target.value);
             }}
           />
           <Button
             type="submit"
-            onClick={(e) => {
+            onClick={(e: ChangeEvent<HTMLButtonElement>) => {
               handleSubmit(e);
             }}
           >
@@ -127,4 +128,4 @@ export function FormSubmit() {
       </div>
     </>
   );
-}
+};

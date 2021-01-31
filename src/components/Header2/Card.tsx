@@ -1,8 +1,11 @@
+import { FC } from "react";
 import { useSelector } from "react-redux";
+import { AppState } from "../../redux/store";
+import { PropsType, StateType } from "../../type";
 import "./Card.scss";
 
-export function Card() {
-  const { posts } = useSelector((state) => state);
+export const Card: FC<PropsType> = () => {
+  const { posts } = useSelector<AppState, StateType>((state) => state);
 
   return (
     <>
@@ -25,4 +28,4 @@ export function Card() {
       ))}
     </>
   );
-}
+};

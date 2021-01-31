@@ -1,17 +1,17 @@
-import { Navigation } from "../Navigation";
-import { Login } from "../Header1/Login";
-import { Slider } from "../Header1/Slider";
-import { Card } from "../Header2";
-import { FormSubmit } from "../Header3";
-
+import { FC } from "react";
 import { Provider } from "react-redux";
-
-import "./App.css";
-import store from "../../redux/store";
-
 import { BrowserRouter as Router, Switch } from "react-router-dom";
 
-function App() {
+import { PropsType } from "../../type";
+import { Navigation } from "../Navigation/Navigation";
+import { Login } from "../Header1/Login/Login";
+import { Slider } from "../Header1/Slider/Slider";
+import { Card } from "../Header2/Card";
+import { FormSubmit } from "../Header3/FormSubmit";
+import "./App.scss";
+import store from "../../redux/store";
+
+const App: FC<PropsType> = () => {
   return (
     <>
       <Router>
@@ -40,6 +40,6 @@ function App() {
       </Router>
     </>
   );
-}
+};
 
 export default App;

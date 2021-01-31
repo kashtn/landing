@@ -1,21 +1,27 @@
 import "./Slider.scss";
-import { useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getPosts } from "../../../redux/actions";
+import { AppState } from "../../../redux/store";
+import { PostType, PropsType, StateType } from "../../../type";
 
-export function Slider() {
+export const Slider: FC<PropsType> = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getPosts());
   }, [dispatch]);
 
-  const { posts } = useSelector((state) => state);
-  const [showingId, setShowingId] = useState(1);
-  const [showingPost, setShowingPost] = useState();
+  const { posts } = useSelector<AppState, StateType>((state) => state);
+  const [showingId, setShowingId] = useState<number>(1);
+  const [showingPost, setShowingPost] = useState<PostType>();
 
-  useEffect(() => {
-    let current = posts?.find((post) => post.id === showingId);
-    setShowingPost(current);
+  useEffect((): void => {
+    if (posts) {
+      let current: PostType | undefined = posts.find(
+        (post) => post.id === showingId
+      );
+      setShowingPost(current);
+    }
   }, [posts, showingId]);
 
   return (
@@ -40,10 +46,7 @@ export function Slider() {
             </ul>
           </div>
           <div className="imgContainer">
-            <img
-              alt="/"
-              src={showingPost && showingPost.url}
-            />
+            <img alt="/" src={showingPost && showingPost.url} />
           </div>
           <div className="rightArrow">
             <ul>
@@ -77,4 +80,4 @@ export function Slider() {
       </div>
     </>
   );
-}
+};
