@@ -9,5 +9,5 @@ Downloads all dependencies
 Launches the app.
 
 ## Home page:
-![screenshot](readme-assets/screenshot.png)
+![screenshot](readme-assets/main.png)
 ##  Use with pleasure!
