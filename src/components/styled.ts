@@ -20,3 +20,6 @@ export const Input = styled.input`
   border: 1px solid #ccc;
   border-radius: 5px;
 `;
+export const TelInput = styled(Input).attrs({
+  maxLength: 11,
+})``;

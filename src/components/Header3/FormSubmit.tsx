@@ -1,5 +1,5 @@
 import "./Header3.scss";
-import { Input, Button } from "../styled";
+import { Input, Button, TelInput } from "../styled";
 import { ChangeEvent, FC, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addClient } from "../../redux/actions";
@@ -53,7 +53,6 @@ export const FormSubmit: FC<PropsType> = () => {
             <p className="error">Wrong name! (only latin)</p>
           )}
           <Input
-            required
             name="firstName"
             type="text"
             placeholder="First name"
@@ -77,11 +76,9 @@ export const FormSubmit: FC<PropsType> = () => {
           {!telRegExp.test(tel) && tel.length > 0 && (
             <p className="error">Wrong telephone number!</p>
           )}
-          <Input
-            required
+          <TelInput
             name="tel"
             type="tel"
-            maxLength="11"
             placeholder="Phone number"
             value={tel}
             onChange={(e: ChangeEvent<HTMLInputElement>) => {
@@ -90,8 +87,8 @@ export const FormSubmit: FC<PropsType> = () => {
           />
           <Button
             type="submit"
-            onClick={(e: ChangeEvent<HTMLButtonElement>) => {
-              handleSubmit(e);
+            onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+              handleSubmit(e as any);
             }}
           >
             Submit

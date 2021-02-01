@@ -1,5 +1,5 @@
 import "./Login.scss";
-import { useState, ChangeEvent } from "react";
+import React,{ useState, ChangeEvent } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { Modal } from "antd";
@@ -81,8 +81,8 @@ export function Login() {
               />
               <Button
                 type="submit"
-                onClick={(e: ChangeEvent) => {
-                  handleSubmit(e);
+                onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+                  handleSubmit(e as any);
                 }}
               >
                 Sign In
