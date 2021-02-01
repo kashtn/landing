@@ -1,24 +1,37 @@
-.cardContainer {
+.headerContainer {
   display: flex;
-  height: 75%;
-  width: 350px;
-  margin-left: 20px;
-  .imgContainer {
-    width: 25%;
-    img {
-      width: 100%;
-      border-radius: 50%;
-      object-fit: contain;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  height: 20%;
+}
+.cardsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+  .cardContainer {
+    display: flex;
+    height: 75%;
+    width: 350px;
+    margin-left: 20px;
+    .imgContainer {
+      width: 25%;
+      img {
+        width: 100%;
+        border-radius: 50%;
+        object-fit: contain;
+      }
     }
-  }
-  .contentContainer {
-    width: 75%;
-    margin-left: 10px;
-    overflow: auto;
+    .contentContainer {
+      width: 75%;
+      margin-left: 10px;
+      overflow: auto;
 
-    .title {
-      font-size: 25px;
-      margin: 0;
+      .title {
+        font-size: 25px;
+        margin: 0;
+      }
     }
   }
 }

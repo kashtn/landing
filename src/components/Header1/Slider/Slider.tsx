@@ -45,8 +45,16 @@ export const Slider: FC<PropsType> = () => {
               </li>
             </ul>
           </div>
-          <div className="imgContainer">
-            <img alt="/" src={showingPost && showingPost.url} />
+          <div
+            className="imgContainer"
+            style={{
+              backgroundImage: showingPost && `url(${showingPost.url})`,
+            }}
+          >
+            <p>
+              There are many variations of passages of Lorem Ipsum available,
+              but the majority have suffered alteration in some form.
+            </p>
           </div>
           <div className="rightArrow">
             <ul>
