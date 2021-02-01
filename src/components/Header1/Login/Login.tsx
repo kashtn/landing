@@ -1,5 +1,5 @@
 import "./Login.scss";
-import React,{ useState, ChangeEvent } from "react";
+import React, { useState, ChangeEvent } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { Modal } from "antd";
@@ -28,7 +28,7 @@ export function Login() {
 
   const handleSubmit = (e: ChangeEvent): void => {
     e.preventDefault();
-    if (login === "admin" && pass === "123") {
+    if (login.toLowerCase() === "admin" && pass === "123") {
       dispatch(setAuth(true));
       showModal();
     }
@@ -55,7 +55,7 @@ export function Login() {
             onCancel={handleCancel}
           >
             <form name="loginForm">
-              {login !== "admin" && login?.length > 0 && (
+              {login.toLowerCase() !== "admin" && login?.length > 0 && (
                 <p className="error">Wrong login!</p>
               )}
               <Input

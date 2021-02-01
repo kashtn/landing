@@ -99,16 +99,12 @@ export const FormSubmit: FC<PropsType> = () => {
         <div className="back">
           <div className="left">
             <img
-              width="200"
-              height="240"
               alt="/"
               src="https://mdn.mozillademos.org/files/6457/mdn_logo_only_color.png"
             />
           </div>
           <div className="right">
             <img
-              width="200"
-              height="240"
               alt="/"
               src="https://mdn.mozillademos.org/files/6457/mdn_logo_only_color.png"
             />
@@ -116,8 +112,6 @@ export const FormSubmit: FC<PropsType> = () => {
         </div>
         <div className="front">
           <img
-            height="200"
-            width="300"
             alt="/"
             src="https://mdn.mozillademos.org/files/6457/mdn_logo_only_color.png"
           />

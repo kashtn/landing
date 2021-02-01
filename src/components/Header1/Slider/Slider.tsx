@@ -51,10 +51,12 @@ export const Slider: FC<PropsType> = () => {
               backgroundImage: showingPost && `url(${showingPost.url})`,
             }}
           >
-            <p>
-              There are many variations of passages of Lorem Ipsum available,
-              but the majority have suffered alteration in some form.
-            </p>
+            <div className="descriptionText">
+              <p>
+                There are many variations of passages of Lorem Ipsum available,
+                but the majority have suffered alteration in some form.
+              </p>
+            </div>
           </div>
           <div className="rightArrow">
             <ul>
